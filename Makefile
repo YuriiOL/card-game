@@ -8,7 +8,7 @@ down:
 	docker-compose down
 
 add:
-	docker-compose run --rm app sh -c "python manage.py startapp core"
+	docker-compose run --rm app sh -c "python manage.py startapp $(app)"
 
 wait-for-db:
 	docker-compose run --rm app sh -c "python manage.py wait_for_db"
