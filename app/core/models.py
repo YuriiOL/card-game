@@ -1,6 +1,7 @@
 """
 Database models.
 """
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -41,3 +42,23 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+# class Folder(models.Model):
+#     """Folder in the system."""
+#     user = models.ForeignKey(
+#         settings.AUTH_USER_MODEL,
+#         on_delete=models.CASCADE
+#     )
+#     name = models.CharField(max_length=255)
+#     cards = models.ManyToManyField(Card, blank=True)
+
+class Card(models.Model):
+    """Card in the system."""
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    word = models.CharField(max_length=255)
+    translation = models.CharField(max_length=255)
+    pronunciation = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
