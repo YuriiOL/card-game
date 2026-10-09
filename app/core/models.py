@@ -62,3 +62,4 @@ class Card(models.Model):
     translation = models.CharField(max_length=255)
     pronunciation = models.CharField(max_length=255)
     description = models.TextField(blank=True)
+    is_learned=models.BooleanField(default=False)

@@ -22,4 +22,7 @@ migrate:
 superuser:
 	docker-compose run --rm app sh -c "python manage.py createsuperuser"
 
+shell:
+	docker-compose run --rm app sh -c "python manage.py shell"
+
 
